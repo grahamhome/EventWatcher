@@ -1,6 +1,9 @@
 from django.db import models
 import logging
 from pprint import pformat
+import jsonschema
+
+
 schema_logger = logging.getLogger("event_watcher.models.Schema")
 
 
@@ -8,9 +11,9 @@ class Schema(models.Model):
     """
     An event schema.
     """
-    category = models.CharField(max_length=255)
-    name = models.CharField(max_length=255)
-    schema = models.JSONField()
+    category = models.CharField(max_length=255, default=None)
+    name = models.CharField(max_length=255, default=None)
+    schema = models.JSONField(default=None)
 
     class Meta:
 
@@ -30,6 +33,8 @@ class Event(models.Model):
     timestamp = models.DateTimeField()
     schema = models.ForeignKey(Schema, on_delete=models.SET_NULL, null=True)
     data = models.JSONField()
+
+
 
     # class Meta:
     #     constraints = [
