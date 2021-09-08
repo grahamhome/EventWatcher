@@ -35,8 +35,9 @@ def create_schema(request):
             return HttpResponse(status=422, content=e)
 
 @csrf_exempt
-async def create_events(request):
-    # if request.method == "POST":
+def create_events(request):
+    if request.method == "POST":
+        map(create_event, *json.loads(request.body))
     #     await asyncio.gather(map(create_event, **json.loads(request.body)))
     return HttpResponse(status=200)
 

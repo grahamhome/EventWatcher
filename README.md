@@ -22,4 +22,22 @@ I have written the logic to validate incoming events with their schemas, but the
 at present which will not work well with large numbers of events. The code to create events asynchronously is commented-out as I am unable to run Django asynchronously on my 
 Windows computer.
 
-Screenshots
+## Screenshots
+![Viewing Existing Schemas](screenshots/admin-schemas.png)
+_Viewing existing schemas_
+
+![Schema Details](screenshots/admin-schema-example.png)
+_Schema details_
+
+![Attempt To Create Invalid Schema](screenshots/postman-create-duplicate-schema.png)
+_Attempting to create an invalid schema with Postman_
+
+![Log Invalid Schema](screenshots/log-duplicate-schema.png)
+_Log entry of an invalid schema event_
+
+![Create Schema](screenshots/postman-create-schema.png)
+_Creating a valid schema with Postman_
+
+![Added Schema](screenshots/admin-schema-added.png)
+_New schema in database_
+
